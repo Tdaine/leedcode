@@ -23,5 +23,6 @@ public class CreateMulArr {
             B[i] = left[i] * right[i];
         }
         return B;
+
     }
 }
