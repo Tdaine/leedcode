@@ -7,6 +7,8 @@ public class Parenthesis {
     public boolean chkParenthesis(String A, int n) {
         // write code here
         Stack<Character> stack = new Stack<Character>();
+        if (A == null || A.length() != n)
+            return false;
         for (int i = 0; i < A.length(); i++){
             if (A.charAt(i) == '(')
                 stack.push('(');
@@ -19,9 +21,5 @@ public class Parenthesis {
         if (stack.isEmpty())
             return true;
         else return false;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new Parenthesis().chkParenthesis("((())",6));
     }
 }
