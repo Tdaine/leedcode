@@ -14,4 +14,20 @@ public class DeleteStr {
         }
         System.out.println(str1);
     }
+
+    /**
+     * another solution
+     */
+    public static void solution(){
+        Scanner in = new Scanner(System.in);
+        while (in.hasNext()){
+            String str1 = in.nextLine();
+            String str2 = in.nextLine();
+            for (int i = 0; i < str1.length(); i++){
+                if (!str2.contains(String.valueOf(str1.charAt(i)))){
+                    System.out.print(str1.charAt(i));
+                }
+            }
+        }
+    }
 }
