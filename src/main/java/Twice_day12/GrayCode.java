@@ -3,7 +3,7 @@ package Twice_day12;
 public class GrayCode {
     public String[] getGray(int n) {
         // write code here
-        String[] str = new String[(int) Math.pow(2,n - 1)];
+        String[] str = new String[(int) Math.pow(2,n)];
         if (n < 1)
             return str;
         if (n == 1){
@@ -22,9 +22,9 @@ public class GrayCode {
          * 反序在首位加1生成(110,111,101,100)
          * 最后进行拼接生成n = 3gray码(000,001,011,010,110,111,101,100)
          */
-        for (int i = 0; i < str.length / 2; i++){
+        for (int i = 0; i < str.length; i++){
             str2[i] = "0" + str[i];
-            str2[str.length / 2 + i] = "1" + str[i];
+            str2[str2.length - 1 - i] = "1" + str[i];
         }
         return str2;
     }
