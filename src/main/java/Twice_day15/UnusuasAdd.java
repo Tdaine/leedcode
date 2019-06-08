@@ -1,6 +1,6 @@
 package Twice_day15;
 
-public class UnusualAdd {
+class UnusualAdd {
     public int addAB(int A, int B) {
         // write code here
         int xor,and;
