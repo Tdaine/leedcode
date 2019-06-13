@@ -12,7 +12,7 @@ public class NowCoder {
                 if (passward.charAt(i) != ' '){
                     int c = passward.charAt(i) - 'A' - 5;
                     if (c < 0){
-                        c = 23 + c;
+                        c = 26 + c;
                     }
                     source.append((char)(c + 'A'));
                 }else source.append(' ');
