@@ -49,6 +49,8 @@ public class DigitalSort {
         }
         String a4 = "N";
         if (count > 0){
+            //new DecimalFormat("0.0")//0.0表示格式和0表示数字不满足格式个数补0
+            //eg:如果是0.00 但是结果是3.1  那最后结果就是3.10
             a4 = new DecimalFormat("0.0").format(A4*1.0 / count);
         }
 
