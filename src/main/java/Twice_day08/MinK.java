@@ -21,6 +21,13 @@ public class MinK {
         }
     }
 
+    /**
+     * 使用快排的思想，只需要排序最小K个所在的部分就可以了
+     * @param arr
+     * @param start
+     * @param end
+     * @param k
+     */
     private static void qulickSort(int[] arr,int start,int end,int k){
         if (start >= end)
             return;
