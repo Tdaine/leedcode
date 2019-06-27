@@ -1,5 +1,6 @@
 package choice.day09;
 
+
 public class test {
     private static void testMethod(){
         System.out.println("testMethod");
