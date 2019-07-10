@@ -10,6 +10,8 @@ public class RecordError {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
+        //这里必须用LinkedHashMap,按插入顺序排序。随后之后会按照出错次数再排序，但如果出错次数一样，还是要按照插入的顺序来
+        //所以要使用LinkHashMap
         Map<String,Integer> map = new LinkedHashMap<String, Integer>();
         while (in.hasNext()){
             String path = in.next();
@@ -26,6 +28,8 @@ public class RecordError {
                 map.put(key,1);
         }
 
+        //对记录进行排序，这里有一个前提，就是java中的排序用的是归并排序，是稳定排序
+        //这样，如果出错次数一样多，仍然保持插入排序
         List<Map.Entry<String,Integer>> list =
                 new LinkedList<Map.Entry<String, Integer>>(map.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
