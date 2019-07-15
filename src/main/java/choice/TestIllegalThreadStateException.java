@@ -1,26 +1,25 @@
 package choice;
 
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
 
 /**
  * @author abaka
- * @date 2019/7/15 17:01
+ * @date 2019/7/15 18:55
  */
 
-class Mythread implements Callable<String>{
+class MythreadTwo implements Runnable {
     private int ticket = 100;
 
     @Override
-    public String call() throws Exception {
+    public void run() {
+
         while (this.ticket > 0){
             for (int i = 0; i < 100; i++){
                 this.sale();
             }
         }
-        return "票卖完了";
     }
+
     private synchronized void sale(){
         if (this.ticket > 0){
             try {
@@ -35,13 +34,14 @@ class Mythread implements Callable<String>{
 }
 
 
-public class TestCallable {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        FutureTask<String> task = new FutureTask<String>(new Mythread());
-        FutureTask<String> task1 = new FutureTask<String>(new Mythread());
-
-        new Thread(task,"1").start();
-        new Thread(task1,"2").start();
-        System.out.println(task.get());
+public class TestIllegalThreadStateException {
+    public static void main(String[] args) {
+        MythreadTwo mythreadTwo = new MythreadTwo();
+        MythreadTwo mythreadTwo1 = new MythreadTwo();
+        MythreadTwo mythreadTwo3 = new MythreadTwo();
+        new Thread(mythreadTwo,"1").start();
+        new Thread(mythreadTwo1,"2").start();
+        new Thread(mythreadTwo3,"3").start();
+        //new Thread(mythreadTwo).start();
     }
 }
