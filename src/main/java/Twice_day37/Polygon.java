@@ -1,7 +1,11 @@
 package Twice_day37;
 
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Lock;
 
 /**
  * @author abaka
@@ -9,6 +13,7 @@ import java.util.Scanner;
  */
 public class Polygon {
     public static void main(String[] args) {
+
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[][] op = new int[n][2];

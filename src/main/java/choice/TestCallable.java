@@ -1,8 +1,6 @@
 package choice;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 /**
  * @author abaka
@@ -10,7 +8,7 @@ import java.util.concurrent.FutureTask;
  */
 
 class Mythread implements Callable<String>{
-    private int ticket = 100;
+    private int ticket = 10;
 
     @Override
     public String call() throws Exception {
@@ -37,11 +35,12 @@ class Mythread implements Callable<String>{
 
 public class TestCallable {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        FutureTask<String> task = new FutureTask<String>(new Mythread());
-        FutureTask<String> task1 = new FutureTask<String>(new Mythread());
-
-        new Thread(task,"1").start();
-        new Thread(task1,"2").start();
-        System.out.println(task.get());
+        Mythread mythread = new Mythread();
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        for (int i = 0; i < 3; i++){
+            Future future = executorService.submit(mythread);
+            System.out.println(future.get());
+        }
+        executorService.shutdown();
     }
 }
