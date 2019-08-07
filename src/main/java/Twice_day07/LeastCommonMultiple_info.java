@@ -26,5 +26,3 @@ package Twice_day07;
  *
  * 35
  */
-public class LeastCommonMultiple_info {
-}
