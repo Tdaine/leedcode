@@ -91,6 +91,7 @@ public class TrainOrder {
             return;
         }
 
+        //动态规划，计算出所有可能排列情况
         for (int i = start; i < n; i++){
             swap(arr,start,i);
             order(arr,start + 1,n,result);
